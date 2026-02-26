@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  # 1. 数据库连接配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/travel_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 2. Redis 连接配置 (用于存放短信验证码)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0 # 使用 0 号数据库
+      timeout: 5000ms
+
+  # 3. JSON 格式化输出 (让前端显示时间更漂亮)
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# MyBatis-Plus 相关配置
+mybatis-plus:
+  configuration:
+    # 在控制台打印生成的真实 SQL 语句，方便 Debug
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 重要：开启自动驼峰转换（数据库 user_id -> Java userId）
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      # 主键策略：数据库自增
+      id-type: auto
+
+# 如果你之后有文件上传需求，可以打开这个配置
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB
+#      max-request-size: 10MB

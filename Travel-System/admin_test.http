@@ -1,0 +1,10 @@
+POST http://localhost:8080/attraction/add
+Content-Type: application/json
+
+{
+  "name": "温州乐园",
+  "city": "温州",
+  "price": 120,
+  "address": "温州市瓯海区茶山街道",
+  "description": "大型综合性游乐园"
+}
