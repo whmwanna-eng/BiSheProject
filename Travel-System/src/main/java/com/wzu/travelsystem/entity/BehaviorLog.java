@@ -11,10 +11,18 @@ import java.time.LocalDateTime;
 public class BehaviorLog {
     @TableId(type = IdType.AUTO)
     private Long id;
+
     private Long userId;
+
     private Long attractionId;
+
     private Integer browseDuration; // 浏览时长(秒)
+
     private Integer clickCount;     // 点击次数
+
     private String searchKeyword;   // 搜索关键词
+
+    private String actionType;
+
     private LocalDateTime createTime;
 }

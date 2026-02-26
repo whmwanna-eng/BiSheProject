@@ -46,6 +46,9 @@ public class Attraction {
     @Schema(description = "开放时间")
     private String openTime;
 
+    @Schema(description = "景点状态(如: 1营业, 0下架)")
+    private Integer status;
+
     @Schema(description = "创建时间")
     private LocalDateTime createTime;
 }
